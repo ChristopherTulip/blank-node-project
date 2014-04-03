@@ -1,13 +1,4 @@
-/*
- * Import nib
- */
-/*
- * Grab a custom font from Google
- */
-@import url("http://fonts.googleapis.com/css?family=Quicksand");
-/*
- * Nib provides a CSS reset
- */
+@import url("http://fonts.googleapis.com/css?family=Lato");
 html,
 body,
 div,
@@ -99,28 +90,27 @@ td {
 a img {
   border: none;
 }
-/*
- * Store the main color and
- * background color as variables
- */
 body {
-  font-family: 'Georgia';
+  font-family: 'Lato';
   background-color: #faf9f0;
   color: #444;
+  line-height: 1.2;
 }
 header {
-  font-family: 'Quicksand';
   padding: 50px 10px;
   color: #fff;
   font-size: 25px;
   text-align: center;
-/*
-   * Note the use of the `main-color`
-   * variable and the `darken` function
-   */
   background-color: #fa5b4d;
   border-bottom: 1px solid #df1806;
   text-shadow: 0px -1px 0px #df1806;
+}
+footer {
+  width: 500px;
+  margin: 50px auto;
+  border-top: 1px dotted #ccc;
+  padding-top: 5px;
+  font-size: 13px;
 }
 .container {
   width: 500px;
@@ -165,14 +155,4 @@ header {
   font-size: 13px;
   padding: 0px 10px;
   margin-bottom: 10px;
-}
-p {
-  line-height: 1.8;
-}
-footer {
-  width: 500px;
-  margin: 50px auto;
-  border-top: 1px dotted #ccc;
-  padding-top: 5px;
-  font-size: 13px;
 }
