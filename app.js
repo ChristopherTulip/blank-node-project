@@ -1,35 +1,8 @@
-/*
- * Module dependencies
- */
-
 var express = require('express')
-  , stylus = require('stylus')
-  , nib = require('nib')
-  // , pagesController = require(__dirname + '/pages_controller.js');
+var app = module.exports = express()
+var config = require('./config.js')(app, express);
 
-var app = express()
+var pagesCtrl = require("./pages_controller");
+app.get('/', pagesCtrl.landing);
 
-function compile(str, path) {
-  return stylus(str)
-    .set('style.styl', path)
-    .use(nib())
-}
-
-app.set('views', __dirname + '/views')
-app.set('view engine', 'jade')
-
-app.use(express.logger('dev'))
-app.use(stylus.middleware(
-  { src: __dirname + '/public'
-    , compile: compile
-  }
-))
-
-app.use(express.static(__dirname + '/public'))
-
-app.get('/', function (req, res) {
-  res.render('index', {
-    title : 'Home'
-  })
-})
 app.listen(3000)

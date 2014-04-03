@@ -1,7 +1,5 @@
-// function PagesController() {
-//   var self = this;
-
-//   this.landing = function () {
-
-//   }
-// }
+module.exports.landing = function (req, res) {
+  res.render('index', {
+    title : 'Chris'
+  })
+};
