@@ -3,9 +3,10 @@ module.exports = function(app, express) {
   var stylus = require('stylus')
   var nib = require('nib')
 
-  function compile(str, path) {
+  function styl_compile (str, path) {
     return stylus(str)
       .set('filename', path)
+      .set('compress', true)
       .use(nib());
   }
 
@@ -13,11 +14,13 @@ module.exports = function(app, express) {
   app.set('view engine', 'jade')
 
   app.use(express.logger('dev'))
-  app.use(stylus.middleware(
-    { src: __dirname + '/public',
-      compile: compile
+
+  app.use("/stylesheets", express.static(__dirname + "/public/stylesheets"))
+  app.use(stylus.middleware({
+      src: __dirname + '/assets/',
+      dest: __dirname + '/public/',
+      compile: styl_compile
     }
   ))
 
-  app.use(express.static(__dirname + '/public'))
 }
