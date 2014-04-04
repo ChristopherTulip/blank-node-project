@@ -15,6 +15,7 @@ module.exports = function(app, express) {
 
   app.use(express.logger('dev'))
 
+    app.use("/images", express.static(__dirname + "/public/images"))
   app.use("/stylesheets", express.static(__dirname + "/public/stylesheets"))
   app.use(stylus.middleware({
       src: __dirname + '/assets/',
